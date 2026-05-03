@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "shopme": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@chriscummings100/shopme-mcp-groceries"
+      ]
+    }
+  }
+}

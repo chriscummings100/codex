@@ -1,0 +1,20 @@
+{
+  "name": "shopme",
+  "interface": {
+    "displayName": "ShopMe"
+  },
+  "plugins": [
+    {
+      "name": "shopme",
+      "source": {
+        "source": "local",
+        "path": "./plugins/shopme"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

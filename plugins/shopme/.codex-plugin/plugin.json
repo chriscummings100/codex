@@ -1,0 +1,42 @@
+{
+  "name": "shopme",
+  "version": "0.1.0",
+  "description": "ShopMe grocery planning and shopping assistance for Codex.",
+  "author": {
+    "name": "Chris Cummings",
+    "email": "[TODO: contact email]",
+    "url": "https://github.com/chriscummings100"
+  },
+  "homepage": "https://github.com/chriscummings100/shopme",
+  "repository": "https://github.com/chriscummings100/shopme",
+  "license": "[TODO: MIT]",
+  "keywords": [
+    "groceries",
+    "shopping",
+    "mcp",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "ShopMe",
+    "shortDescription": "Plan grocery shops and manage shopping lists from Codex.",
+    "longDescription": "ShopMe connects Codex to a grocery-focused MCP server and companion skill so Codex can help plan shops, organize grocery lists, and work with grocery data through the ShopMe tools.",
+    "developerName": "Chris Cummings",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "MCP",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/chriscummings100/shopme",
+    "privacyPolicyURL": "[TODO: privacy policy URL]",
+    "termsOfServiceURL": "[TODO: terms of service URL]",
+    "defaultPrompt": [
+      "Plan a grocery shop for this week's meals.",
+      "Help me organize my grocery list.",
+      "Find what I need for tonight's dinner."
+    ],
+    "brandColor": "#16A34A"
+  }
+}
