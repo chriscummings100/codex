@@ -1,0 +1,17 @@
+{
+  "name": "shopme",
+  "version": "0.1.0",
+  "description": "ShopMe grocery planning and shopping assistance.",
+  "author": {
+    "name": "Chris Cummings",
+    "url": "https://github.com/chriscummings100"
+  },
+  "homepage": "https://github.com/chriscummings100/shopme",
+  "repository": "https://github.com/chriscummings100/shopme",
+  "license": "MIT",
+  "keywords": [
+    "groceries",
+    "shopping",
+    "mcp"
+  ]
+}

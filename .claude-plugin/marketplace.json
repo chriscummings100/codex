@@ -1,0 +1,17 @@
+{
+  "name": "shopme",
+  "owner": {
+    "name": "Chris Cummings"
+  },
+  "metadata": {
+    "description": "ShopMe grocery planning and shopping assistance plugins for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "shopme",
+      "source": "./plugins/shopme",
+      "description": "Plan grocery shops and manage shopping lists.",
+      "category": "productivity"
+    }
+  ]
+}
