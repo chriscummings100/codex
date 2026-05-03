@@ -48,7 +48,13 @@ Before doing anything else, ask the user:
 Wait for their answer. Use it to set `VENDOR` to either `waitrose` or
 `sainsburys`.
 
-## Step 1 - Get context silently
+## Step 1 - Start the browser
+
+Call `start_browser(vendor=<VENDOR>)`, then tell the
+user:
+> "I've opened Chrome for <VENDOR>. Please log in there, then come back and say ready."
+
+## Step 2 - Get context silently
 
 Before asking for the shopping list, gather context in parallel:
 - `memory_summary(vendor=VENDOR, limit=3)`
@@ -67,7 +73,7 @@ Keep the memory summary in mind. It contains soft household associations between
 the user's original phrases and products that previously ended up being ordered.
 Treat it as evidence, not a permanent definition.
 
-## Step 2 - Ask for the list
+## Step 3 - Ask for the list
 
 Ask the user: **"What would you like to add to your basket?"**
 
@@ -76,7 +82,7 @@ Accept free-form input. Examples:
 - "the usual weekly shop plus some beers for the weekend"
 - "2 pints of semi skimmed, a bag of pasta, tuna"
 
-## Step 3 - Process each item
+## Step 4 - Process each item
 
 Work through items one at a time, in order. For each item:
 
@@ -84,7 +90,7 @@ Before rewriting or expanding the item, remember the user's original phrase.
 This original phrase is what gets recorded back to memory after the final
 product is added.
 
-### 3m - Memory
+### 4m - Memory
 
 Check the memory summary for the original phrase or a close normalized match.
 
@@ -97,7 +103,7 @@ Never let memory override an explicit correction from the user. If memory says a
 phrase previously led to the wrong product, avoid that product unless the user
 explicitly asks for it.
 
-### 3a - Search
+### 4a - Search
 
 Call:
 - `search_products(term=<term>, size=5, vendor=VENDOR)`
@@ -109,7 +115,7 @@ The response is an array of products. Each product has:
 - `id` - opaque string; pass it back as-is to `add_to_cart`
 - `name`, `size`, `price`, `price_per_unit`, `promotion`
 
-### 3b - Decide
+### 4b - Decide
 
 Add without asking if:
 - The top result is an obvious match and matches what the user has bought before.
@@ -125,7 +131,7 @@ When asking, show a short numbered list with at most 3 options, including name,
 size and price. Put a remembered association first when relevant. Ask in one
 line: *"Which did you mean? (1/2/3 or describe it differently)"*
 
-### 3c - Add
+### 4c - Add
 
 Call:
 - `add_to_cart(product_id=<product_id>, qty=<qty>, vendor=VENDOR)`
@@ -133,14 +139,14 @@ Call:
 Use the quantity the user specified, defaulting to 1. The response is the
 updated cart.
 
-### 3d - Confirm lightly
+### 4d - Confirm lightly
 
 Say one line, for example:
 *"Added Essential Semi-Skimmed Milk 4 Pints (GBP 1.75)."*
 
 Do not ask for confirmation before adding when the match is clear.
 
-### 3e - Remember
+### 4e - Remember
 
 After the final product is added, record the association between the original
 phrase and the product that actually went into the basket:
@@ -160,7 +166,7 @@ with `set_cart_quantity`, then record the correction:
 Do not ask the user whether to record memory. It is part of finishing the
 shopping task.
 
-## Step 4 - Summary
+## Step 5 - Summary
 
 Once all items are processed, call:
 - `get_cart(vendor=VENDOR)`
